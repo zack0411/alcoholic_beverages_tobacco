@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+    .mdiv1{
+        display:inline-block;
+        width:850px;
+        height:500px;
+    }
+
+    .mdiv2{
+        display:inline-block;
+        width:300px;
+        height:500px;
+        vertical-align:top;
+    }
+        
+</style>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+
+<!-- Create a div where the graph will take place -->
+<div class='mdiv1' id="my_dataviz"></div>
+<div class='mdiv2'>
+    <p>
+        bar 5 : Then, we multiply the population with the monthly spent on ALCOHOLIC BEVERAGES AND TOBACCO. Here’s final
+        result:
+    </p>
+
+    <p>
+        The winner is the “university” group. The group with the highest education degree contributes the most to the
+        national consuming of ALCOHOLIC BEVERAGES AND TOBACCO. Finally, we have our conclusion: if Singapore government
+        want to reduce the consumption of ALCOHOLIC BEVERAGES AND TOBACCO, they should put more emphasis on health
+        education to the people with “university” qualification.
+    </p>
+</div>
+
+<script>
+    // set the dimensions and margins of the graph
+    var margin = {
+            top: 30,
+            right: 30,
+            bottom: 70,
+            left: 60
+        },
+        width = 800 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    // Parse the Data
+    d3.csv("https://raw.githubusercontent.com/xfiax/HASS-final_project/main/TOTAL-spent-highest-qualification-attained.csv", function(data) {
+
+
+        //console.log(data1[2].level_2)
+
+        // X axis
+        var x = d3.scaleBand()
+            .range([0, width])
+            .domain(data.map(function(d) {
+                return d.level_2;
+            }))
+            .padding(0.2);
+        svg.append("g")
+            .attr("transform", "translate(0," + (height-100) + ")")
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .attr("transform", "translate(-10,0)rotate(-45)")
+            .style("text-anchor", "end");
+
+        // Add Y axis
+        var y = d3.scaleLinear()
+            .domain([0, 120000])
+            .range([(height-100), 0]);
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        // Bars
+        svg.selectAll("mybar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("x", function(d) {
+                return x(d.level_2);
+            })
+            .attr("y", function(d) {
+                return y(d.value);
+            })
+            .attr("width", x.bandwidth())
+            .attr("height", function(d) {
+                return (height-100) - y(d.value);
+            })
+            .attr("fill", "#00cc33")
+
+    })
+</script>

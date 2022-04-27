@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Pie Chart</title>
+    <link rel="stylesheet" href="./vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        body,
+        h1 {
+            color: black;
+            background-color: white;
+        },
+        h2 {
+            margin-top: 50px;
+            font-family: "Raleway", sans-serif;
+        }
+    
+        body,
+        html {
+            height: 100%;
+        }
+    
+        p {
+            line-height: 2;;
+            font-family: "Raleway", sans-serif;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+    
+        .bgimg,
+        .bgimg2 {
+            min-height: 100%;
+            background-position: center;
+            background-size: cover;
+        }
+    
+        .bgimg {
+            background-image: url("./images/smoking-drinking.jpg")
+        }
+    
+        .bgimg2 {
+            background-image: url("/w3images/flowers.jpg")
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+        <div class="w3-display-middle w3-text-white w3-center">
+            <h1 class="w3-jumbo">Which Came First—Better Education or Better Health?</h1>
+        </div>
+    </header>
+
+    <div style="position:relative; margin-top: 30px;">
+        <p style="margin-top: 50px;">
+            Many research have shown that Education is associated with better health outcomes. People have higher education
+            exhibit less anxiety and depression, have fewer functional limitations, and are less likely to have a serious
+            health
+            condition like diabetes, cardiovascular disease, or asthma.
+        </p>
+        <p>
+            In 2021, the private consumption expenditure on alcohol and tobacco in Singapore amounted to 3.37 billion
+            Singapore
+            dollars. Alcohol and tobacco are heavily taxed in Singapore, making it one of the most expensive countries in
+            the
+            world for both products.
+        </p>
+        <p>
+            How much do different education level people spend on these two items? Who spend more? People with lower
+            education
+            level?
+        </p>
+        <img src="https://raw.githubusercontent.com/xfiax/HASS-final_project/main/截屏2022-04-28%2000.40.42.png" alt=" Private consumption expenditure on alcoholic beverages and tobacco in Singapore from 2012 to 2021" class="center">   
+    </div>
+
+
+    <div>  
+        <h1 style="text-align: center; font-size: 50px; margin-top: 100px; margin-bottom: 100px; "><b>
+                Give a guess!
+            </b>
+        </h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-4">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="general"
+                        onclick="changePieChart('0-General')" checked>
+                    <label class="form-check-label">
+                        General Population
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="no-qualification"
+                        onclick="changePieChart('1-No_Qualification')">
+                    <label class="form-check-label">
+                        No Qualification
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="primary"
+                        onclick="changePieChart('2-primary')">
+                    <label class="form-check-label">
+                        Primary
+                    </label>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="3-Lower_second"
+                        onclick="changePieChart('3-Lower_second')">
+                    <label class="form-check-label">
+                        Lower secondary
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="secondary"
+                        onclick="changePieChart('4-secondary')">
+                    <label class="form-check-label">
+                        Secondary
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="post_secondary"
+                        onclick="changePieChart('5-post_secondary')">
+                    <label class="form-check-label">
+                        Post Secondary
+                    </label>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="polytechnic"
+                        onclick="changePieChart('6-Polytechnic')">
+                    <label class="form-check-label">
+                        Polytechnic
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="diploma"
+                        onclick="changePieChart('7-Diploma')">
+                    <label class="form-check-label">
+                        Diploma
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="pie-charts" id="university"
+                        onclick="changePieChart('8-University')">
+                    <label class="form-check-label">
+                        University
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="background-color: #EAECEE ;">
+            <div class="col-12 mb-3">
+                <iframe id="iframe-pie-chart" src="./0-General.html" frameborder="0" width="100%"
+                    height="520px"></iframe>
+            </div>
+
+            <div class="col-12">
+                <p>
+                    The following donut charts are illustration of the distribution of Monthly Household Expenditure by
+                    Type of Goods and Services and Highest Qualification Attained of Main Income Earner.
+                </p>
+                <p>
+                    We can see that every family have around 1/3 of the total spend is on food related items. Orange
+                    stands for the food consumption. The magenta stands for food services. The blue bar is the
+                    percentage of ALCOHOLIC BEVERAGES AND TOBACCO, which are relatively small percentage compared to
+                    normal food consumptions.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; font-size: 40px; margin-top: 100px; margin-bottom: 100px; ">
+        Which group has the highest percentage?
+    </h2>
+
+    <div class="container-fluid">
+        <div class="row mb-3">
+            <div class="col-2">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="bar-charts-1" id="Bar-ALCOHOLIC_TOBACCO"
+                        onclick="changeBarChart1('Bar-ALCOHOLIC_TOBACCO')" checked>
+                    <label class="form-check-label">
+                        Alcohol and Tobacco monthly expenditure (%)
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="bar-charts-1" id="Bar-Monthly_household_Spent"
+                        onclick="changeBarChart1('Bar-Monthly_household_Spent')">
+                    <label class="form-check-label">
+                        Monthly Total Expenditure ($)
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="bar-charts-1"
+                        id="Bar-Monthly_Alcohol_Tobacco_Spent"
+                        onclick="changeBarChart1('Bar-Monthly_Alcohol_Tobacco_Spent')">
+                    <label class="form-check-label">
+                        Monthly Spend Total Expenditure on Alcohol and Tobacco ($)
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="bar-charts-1" id="Bar-HDB_Population"
+                        onclick="changeBarChart1('Bar-HDB_Population')">
+                    <label class="form-check-label">
+                        HDB popluation (1000)
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="radio" name="bar-charts-1" id="Bar-TOTAL_Spent"
+                        onclick="changeBarChart1('Bar-TOTAL_Spent')">
+                    <label class="form-check-label">
+                        Total Spending (1000$)
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" style="background-color: #EAECEE ;">
+            <div class="col-12 mb-3">
+                <iframe id="iframe-bar-chart-1" src="./Bar-ALCOHOLIC_TOBACCO.html" frameborder="0" width="100%"
+                    height="520px"></iframe>
+            </div>
+
+           
+        </div>
+    </div>
+
+    <div>
+        <h2 style="text-align: center; font-size: 40px; margin-top: 100px; margin-bottom: 100px; ">
+            Is this the end of the story? 
+        </h2>
+
+        <h4 style="text-align: center;">
+            Are people with“university”qualifications more concerned for health issue?
+        </h4>
+        
+
+        <div style="position: relative; margin-top: 30px; margin-left: 100px;">
+            <img src="https://raw.githubusercontent.com/xfiax/HASS-final_project/main/ALCHOLIC%20BEVERAGES.jpeg " width="558" height="297">
+            <div style="position: absolute; z-index: 2; left: 700px; top: 50px">
+                <p>
+                    Here’s still one more parameter to be considered: The big pricing range of different kinds of ALCOHOLIC BEVERAGES AND TOBACCO. Someone can spend 100 dollars on 10 packs of cigarettes, while someone else can spent 200 dollars on one pack. The person spends less money is the heavier smoker in this case. 
+                </p>
+            </div>
+        </div>
+
+        <div style="position:relative; margin-top: 30px; margin-left: 100px;">
+            <div style="position: absolute; z-index: 2; left: 700px; top: 50px" >
+                <p>
+                Unfortunately, we don’t have the price dataset of the consumption. We couldn’t see the actual quantity, which indicates the actual level of “un-healthiness” each group of people. 
+                </p>
+            </div>
+            <img src="https://raw.githubusercontent.com/xfiax/HASS-final_project/main/CIGARETTE.jpeg" width="558" height="297">   
+        </div>
+    </div>
+
+    <section class="header">
+        <div class="header-button" >
+          <a class="btn" href="https://data.gov.sg/"> Data resource</a>
+    
+        </div>
+      </section>
+
+
+    <script src="../vendors/bootstrap.bundle.min.js"></script>
+    <script>
+        function changePieChart(pageName) {
+            console.log(pageName);
+            document.getElementById('iframe-pie-chart').src = `./${pageName}.html`;
+        }
+
+        function changeBarChart1(pageName) {
+            console.log(pageName);
+            document.getElementById('iframe-bar-chart-1').src = `./${pageName}.html`;
+        }
+    </script>
+
+
+
+</body>
+
+</html>
